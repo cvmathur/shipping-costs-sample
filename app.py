@@ -40,7 +40,7 @@ def makeWebhookResult(req):
     ran_a = random.randrange(1, 4)
     ran_b = random.randrange(1, 200)
     cost = random.uniform(1, 30)
-    status = {'WL', 'RAC', 'Reserved'}
+    status = {"WL", "RAC", "Reserved"}
 
 
     #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
@@ -56,7 +56,7 @@ def makeWebhookResult(req):
         # "contextOut": [],
         "source": "ada007",
         "followupEvent": {
-            "name": "charge",
+            "name": "webcheck",
             "data": {
                 "charges":str(cost)
             }
