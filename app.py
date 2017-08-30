@@ -44,7 +44,7 @@ def makeWebhookResult(req):
 
 
     #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = "The status of " + pnrnum + " is " + status[ran_a] + " " + str(ran_b) + ". Upgradation charges are " + str(cost) + "."
+    speech = "The status of " + pnrnum + " is " + status[ran_a-1] + " " + str(ran_b) + ". Upgradation charges are USD " + str(cost) + "."
 
     print("Response:")
     print(speech)
@@ -54,7 +54,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "ada007",
+        "source": "hda007",
         "followupEvent": {
             "name": "webcheck",
             "data": {
