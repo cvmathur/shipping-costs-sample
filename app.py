@@ -3,6 +3,7 @@
 import urllib
 import json
 import os
+import random
 
 from flask import Flask
 from flask import request
@@ -28,15 +29,22 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    #if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "tell-status":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
+    #zone = parameters.get("shipping-zone")
+    pnrnum = parameters.get("pnr")
 
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    ran_a = randrange(1, 4)
+    ran_b = randrange(1, 200)
+    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    status = {'WL', 'RAC', 'Reserved'}
 
-    speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
+
+    #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
+    speech = "The status of " + pnrnum + " is " + status[ran_a] + " " + str(ran_b) + "."
 
     print("Response:")
     print(speech)
