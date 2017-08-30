@@ -54,7 +54,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "agent4007"
+        "source": "agent4007",
         "followupEvent": {
             "name": "charge",
             "data": {
