@@ -39,12 +39,12 @@ def makeWebhookResult(req):
 
     ran_a = randrange(1, 4)
     ran_b = randrange(1, 200)
-    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    cost = uniform(1, 30)
     status = {'WL', 'RAC', 'Reserved'}
 
 
     #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = "The status of " + pnrnum + " is " + status[ran_a] + " " + str(ran_b) + "."
+    speech = "The status of " + pnrnum + " is " + status[ran_a] + " " + str(ran_b) + ". Upgradation charges are " + str(cost) + "."
 
     print("Response:")
     print(speech)
@@ -54,7 +54,13 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
+        "source": "007"
+        "followupEvent": {
+            "name": "charge",
+            "data": {
+                "<charges>":"<cost>>"
+            }
+        }
     }
 
 
