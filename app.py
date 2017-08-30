@@ -58,7 +58,7 @@ def makeWebhookResult(req):
         "followupEvent": {
             "name": "charge",
             "data": {
-                "<charges>":"<cost>>"
+                "charges":"cost"
             }
         }
     }
