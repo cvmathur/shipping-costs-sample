@@ -37,7 +37,7 @@ def makeWebhookResult(req):
     #zone = parameters.get("shipping-zone")
     pnrnum = parameters.get("pnr")
 
-    ran_a = random.rrandrange(1, 4)
+    ran_a = random.randrange(1, 4)
     ran_b = random.randrange(1, 200)
     cost = random.uniform(1, 30)
     status = {'WL', 'RAC', 'Reserved'}
