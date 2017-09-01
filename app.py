@@ -37,10 +37,10 @@ def makeWebhookResult(req):
     #zone = parameters.get("shipping-zone")
     #pnrnum = parameters.get("pnr")
     
-    tickets = parameters.get("tickets")
-    pcharges = parameters.get("ppcharges")
-    rcharges = parameters.get("rcharges")
-    mcharges = parameters.get("mcharges")
+    tickets = int(parameters.get("tickets"))
+    pcharges = int(parameters.get("ppcharges"))
+    rcharges = int(parameters.get("rcharges"))
+    mcharges = int(parameters.get("mcharges"))
     sumTotal = (tickets*mcharges) + pcharges + rcharges
 
     #ran_a = random.randrange(1, 4)
