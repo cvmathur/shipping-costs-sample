@@ -30,21 +30,26 @@ def webhook():
 
 def makeWebhookResult(req):
     #if req.get("result").get("action") != "shipping.cost":
-    if req.get("result").get("action") != "tell-status":
+    if req.get("result").get("action") != "add-sum":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
-    pnrnum = parameters.get("pnr")
+    tickets = parameters.get("tickets")
+    pcharges = parameters.get("ppcharges")
+    rcharges = parameters.get("rcharges")
+    mcharges = parameters.get("mcharges")
+    sumTotal = int(tickets)*int(mcharges) + int(pcharges) + int(rcharges)
 
-    ran_a = random.randrange(1, 4)
-    ran_b = random.randrange(1, 200)
-    cost = random.uniform(1, 30)
-    status = ["WL", "RAC", "Reserved"]
+    #ran_a = random.randrange(1, 4)
+    #ran_b = random.randrange(1, 200)
+    #cost = random.uniform(1, 30)
+    #status = ["WL", "RAC", "Reserved"]
 
 
     #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-    speech = "The status of " + str(pnrnum) + " is " + status[ran_a-1] + " " + str(ran_b) + ". Upgradation charges are USD " + str(cost) + "."
+    #speech = "The status of " + str(pnrnum) + " is " + status[ran_a-1] + " " + str(ran_b) + ". Upgradation charges are USD " + str(cost) + "."
+    speech = "Your total amount to be paid is " + str(sumTotal) + ". This amount will be adjusted in your mobile bill for this month. Goodbye."
 
     print("Response:")
     print(speech)
@@ -56,9 +61,10 @@ def makeWebhookResult(req):
         # "contextOut": [],
         "source": "hda007",
         "followupEvent": {
-            "name": "webcheck",
+            #"name": "webcheck",
+            "name": "sum-total",
             "data": {
-                "charges":str(cost)
+                "sumTotal":str(sumTotal)
             }
         }
     }
