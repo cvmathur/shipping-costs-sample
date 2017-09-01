@@ -64,7 +64,7 @@ def makeWebhookResult(req):
         "source": "hda007",
         "followupEvent": {
             #"name": "webcheck",
-            "name": "sum-total",
+            "name": "finalSum",
             "data": {
                 "sumTotal":str(sumTotal)
             }
