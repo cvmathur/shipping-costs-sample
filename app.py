@@ -51,7 +51,7 @@ def makeWebhookResult(req):
 
     #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
     #speech = "The status of " + str(pnrnum) + " is " + status[ran_a-1] + " " + str(ran_b) + ". Upgradation charges are USD " + str(cost) + "."
-    speech = "Your total amount to be paid is " + str(sumTotal) + ". This amount will be adjusted in your mobile bill for this month. Goodbye."
+    speech = "Total amount to be paid is " + str(sumTotal) + ". This amount will be adjusted in your mobile bill for this month. Goodbye."
 
     print("Response:")
     print(speech)
